@@ -1,0 +1,417 @@
+<!DOCTYPE html>
+<html>
+<head>
+<title>answer.md</title>
+<meta http-equiv="Content-type" content="text/html;charset=UTF-8">
+
+<style>
+/* https://github.com/microsoft/vscode/blob/master/extensions/markdown-language-features/media/markdown.css */
+/*---------------------------------------------------------------------------------------------
+ *  Copyright (c) Microsoft Corporation. All rights reserved.
+ *  Licensed under the MIT License. See License.txt in the project root for license information.
+ *--------------------------------------------------------------------------------------------*/
+
+body {
+	font-family: var(--vscode-markdown-font-family, -apple-system, BlinkMacSystemFont, "Segoe WPC", "Segoe UI", "Ubuntu", "Droid Sans", sans-serif);
+	font-size: var(--vscode-markdown-font-size, 14px);
+	padding: 0 26px;
+	line-height: var(--vscode-markdown-line-height, 22px);
+	word-wrap: break-word;
+}
+
+#code-csp-warning {
+	position: fixed;
+	top: 0;
+	right: 0;
+	color: white;
+	margin: 16px;
+	text-align: center;
+	font-size: 12px;
+	font-family: sans-serif;
+	background-color:#444444;
+	cursor: pointer;
+	padding: 6px;
+	box-shadow: 1px 1px 1px rgba(0,0,0,.25);
+}
+
+#code-csp-warning:hover {
+	text-decoration: none;
+	background-color:#007acc;
+	box-shadow: 2px 2px 2px rgba(0,0,0,.25);
+}
+
+body.scrollBeyondLastLine {
+	margin-bottom: calc(100vh - 22px);
+}
+
+body.showEditorSelection .code-line {
+	position: relative;
+}
+
+body.showEditorSelection .code-active-line:before,
+body.showEditorSelection .code-line:hover:before {
+	content: "";
+	display: block;
+	position: absolute;
+	top: 0;
+	left: -12px;
+	height: 100%;
+}
+
+body.showEditorSelection li.code-active-line:before,
+body.showEditorSelection li.code-line:hover:before {
+	left: -30px;
+}
+
+.vscode-light.showEditorSelection .code-active-line:before {
+	border-left: 3px solid rgba(0, 0, 0, 0.15);
+}
+
+.vscode-light.showEditorSelection .code-line:hover:before {
+	border-left: 3px solid rgba(0, 0, 0, 0.40);
+}
+
+.vscode-light.showEditorSelection .code-line .code-line:hover:before {
+	border-left: none;
+}
+
+.vscode-dark.showEditorSelection .code-active-line:before {
+	border-left: 3px solid rgba(255, 255, 255, 0.4);
+}
+
+.vscode-dark.showEditorSelection .code-line:hover:before {
+	border-left: 3px solid rgba(255, 255, 255, 0.60);
+}
+
+.vscode-dark.showEditorSelection .code-line .code-line:hover:before {
+	border-left: none;
+}
+
+.vscode-high-contrast.showEditorSelection .code-active-line:before {
+	border-left: 3px solid rgba(255, 160, 0, 0.7);
+}
+
+.vscode-high-contrast.showEditorSelection .code-line:hover:before {
+	border-left: 3px solid rgba(255, 160, 0, 1);
+}
+
+.vscode-high-contrast.showEditorSelection .code-line .code-line:hover:before {
+	border-left: none;
+}
+
+img {
+	max-width: 100%;
+	max-height: 100%;
+}
+
+a {
+	text-decoration: none;
+}
+
+a:hover {
+	text-decoration: underline;
+}
+
+a:focus,
+input:focus,
+select:focus,
+textarea:focus {
+	outline: 1px solid -webkit-focus-ring-color;
+	outline-offset: -1px;
+}
+
+hr {
+	border: 0;
+	height: 2px;
+	border-bottom: 2px solid;
+}
+
+h1 {
+	padding-bottom: 0.3em;
+	line-height: 1.2;
+	border-bottom-width: 1px;
+	border-bottom-style: solid;
+}
+
+h1, h2, h3 {
+	font-weight: normal;
+}
+
+table {
+	border-collapse: collapse;
+}
+
+table > thead > tr > th {
+	text-align: left;
+	border-bottom: 1px solid;
+}
+
+table > thead > tr > th,
+table > thead > tr > td,
+table > tbody > tr > th,
+table > tbody > tr > td {
+	padding: 5px 10px;
+}
+
+table > tbody > tr + tr > td {
+	border-top: 1px solid;
+}
+
+blockquote {
+	margin: 0 7px 0 5px;
+	padding: 0 16px 0 10px;
+	border-left-width: 5px;
+	border-left-style: solid;
+}
+
+code {
+	font-family: Menlo, Monaco, Consolas, "Droid Sans Mono", "Courier New", monospace, "Droid Sans Fallback";
+	font-size: 1em;
+	line-height: 1.357em;
+}
+
+body.wordWrap pre {
+	white-space: pre-wrap;
+}
+
+pre:not(.hljs),
+pre.hljs code > div {
+	padding: 16px;
+	border-radius: 3px;
+	overflow: auto;
+}
+
+pre code {
+	color: var(--vscode-editor-foreground);
+	tab-size: 4;
+}
+
+/** Theming */
+
+.vscode-light pre {
+	background-color: rgba(220, 220, 220, 0.4);
+}
+
+.vscode-dark pre {
+	background-color: rgba(10, 10, 10, 0.4);
+}
+
+.vscode-high-contrast pre {
+	background-color: rgb(0, 0, 0);
+}
+
+.vscode-high-contrast h1 {
+	border-color: rgb(0, 0, 0);
+}
+
+.vscode-light table > thead > tr > th {
+	border-color: rgba(0, 0, 0, 0.69);
+}
+
+.vscode-dark table > thead > tr > th {
+	border-color: rgba(255, 255, 255, 0.69);
+}
+
+.vscode-light h1,
+.vscode-light hr,
+.vscode-light table > tbody > tr + tr > td {
+	border-color: rgba(0, 0, 0, 0.18);
+}
+
+.vscode-dark h1,
+.vscode-dark hr,
+.vscode-dark table > tbody > tr + tr > td {
+	border-color: rgba(255, 255, 255, 0.18);
+}
+
+</style>
+
+<style>
+/* Tomorrow Theme */
+/* http://jmblog.github.com/color-themes-for-google-code-highlightjs */
+/* Original theme - https://github.com/chriskempson/tomorrow-theme */
+
+/* Tomorrow Comment */
+.hljs-comment,
+.hljs-quote {
+	color: #8e908c;
+}
+
+/* Tomorrow Red */
+.hljs-variable,
+.hljs-template-variable,
+.hljs-tag,
+.hljs-name,
+.hljs-selector-id,
+.hljs-selector-class,
+.hljs-regexp,
+.hljs-deletion {
+	color: #c82829;
+}
+
+/* Tomorrow Orange */
+.hljs-number,
+.hljs-built_in,
+.hljs-builtin-name,
+.hljs-literal,
+.hljs-type,
+.hljs-params,
+.hljs-meta,
+.hljs-link {
+	color: #f5871f;
+}
+
+/* Tomorrow Yellow */
+.hljs-attribute {
+	color: #eab700;
+}
+
+/* Tomorrow Green */
+.hljs-string,
+.hljs-symbol,
+.hljs-bullet,
+.hljs-addition {
+	color: #718c00;
+}
+
+/* Tomorrow Blue */
+.hljs-title,
+.hljs-section {
+	color: #4271ae;
+}
+
+/* Tomorrow Purple */
+.hljs-keyword,
+.hljs-selector-tag {
+	color: #8959a8;
+}
+
+.hljs {
+	display: block;
+	overflow-x: auto;
+	color: #4d4d4c;
+	padding: 0.5em;
+}
+
+.hljs-emphasis {
+	font-style: italic;
+}
+
+.hljs-strong {
+	font-weight: bold;
+}
+</style>
+
+<style>
+/*
+ * Markdown PDF CSS
+ */
+
+ body {
+	font-family: -apple-system, BlinkMacSystemFont, "Segoe WPC", "Segoe UI", "Ubuntu", "Droid Sans", sans-serif, "Meiryo";
+	padding: 0 12px;
+}
+
+pre {
+	background-color: #f8f8f8;
+	border: 1px solid #cccccc;
+	border-radius: 3px;
+	overflow-x: auto;
+	white-space: pre-wrap;
+	overflow-wrap: break-word;
+}
+
+pre:not(.hljs) {
+	padding: 23px;
+	line-height: 19px;
+}
+
+blockquote {
+	background: rgba(127, 127, 127, 0.1);
+	border-color: rgba(0, 122, 204, 0.5);
+}
+
+.emoji {
+	height: 1.4em;
+}
+
+code {
+	font-size: 14px;
+	line-height: 19px;
+}
+
+/* for inline code */
+:not(pre):not(.hljs) > code {
+	color: #C9AE75; /* Change the old color so it seems less like an error */
+	font-size: inherit;
+}
+
+/* Page Break : use <div class="page"/> or <div class="page"></div> to insert page break
+-------------------------------------------------------- */
+.page {
+	page-break-after: always;
+}
+
+</style>
+
+<script src="https://unpkg.com/mermaid/dist/mermaid.min.js"></script>
+</head>
+<body>
+  <script>
+    mermaid.initialize({
+      startOnLoad: true,
+      theme: document.body.classList.contains('vscode-dark') || document.body.classList.contains('vscode-high-contrast')
+          ? 'dark'
+          : 'default'
+    });
+  </script>
+<h1 id="第1次練習題目-練習-pc1">第1次練習題目-練習-PC1</h1>
+<blockquote>
+<p>學號：112111136      (學號和姓名都要寫)
+<br />
+姓名：張紘齊</p>
+</blockquote>
+<p>Ans:</p>
+<h1 id="實作作業power-bi-網頁資料直接輸入與轉換實作">實作作業：Power BI 網頁資料直接輸入與轉換實作</h1>
+<p>本實作完全對照 Topic 4 投影片 p. 8 - p. 12 之流程規範，捨棄投影片使用之人口資料，改採維基百科之「暢銷電子遊戲列表」網頁進行資料直接輸入、模型載入與進階 Power Query 編輯實作。</p>
+<ul>
+<li><strong>實作網址：</strong> https://zh.wikipedia.org/zh-tw/暢銷電子遊戲列表</li>
+</ul>
+<hr>
+<h3 id="步驟一維基百科表格資料選取與複製對應-p-8-圖-21">步驟一：維基百科表格資料選取與複製（對應 p. 8 圖 2.1）</h3>
+<ol>
+<li>使用瀏覽器進入維基百科的「暢銷電子遊戲列表」網頁。</li>
+<li>滾動至網頁下方的「列表」主題表格（欄位包含：排名、遊戲名、銷量、系列、平台、最初發行日期、開發商、發行商）。</li>
+<li>使用滑鼠將表格的所有數據內容進行<strong>反白選取</strong>，並按下 <code>Ctrl + C</code> 進行複製。</li>
+</ol>
+<p><img src="image.png" alt="alt text"></p>
+<hr>
+<h3 id="步驟二power-bi-直接輸入資料與表格命名對應-p-8---p-9">步驟二：Power BI 直接輸入資料與表格命名（對應 p. 8 - p. 9）</h3>
+<ol>
+<li>開啟 Power BI Desktop。</li>
+<li>在上方【常用】功能區，點擊 <strong>「輸入資料」</strong> 按鈕，此時系統會彈出「建立表格」的獨立視窗。</li>
+<li>點選左上角第一個儲存格，按下 <code>Ctrl + V</code> 將剛才從維基百科複製下來的暢銷遊戲數據全數貼上。</li>
+<li><strong>關鍵注意事項（對應 p. 9 提示）：</strong> 保持系統預設，<strong>切勿點選「復原標頭」</strong>。確保第一列的「排名、遊戲名、銷量」等文字自動被提升為欄位標頭，以避免欄位變成「資料行1」、「資料行2」等無意義名稱。</li>
+<li>在視窗左下角的「名稱」輸入框中，將該資料表重新命名為具有分析意義的：<strong><code>全球暢銷電子遊戲表</code></strong>。</li>
+<li>確認無誤後，點擊右下角的 <strong>「載入」</strong> 按鈕，將數據封裝壓縮成二進位資料。</li>
+</ol>
+<p><img src="image-1.png" alt="alt text"></p>
+<hr>
+<h3 id="步驟三於報告模型中確認遊戲欄位清單對應-p-10---p-11">步驟三：於報告模型中確認遊戲欄位清單（對應 p. 10 - p. 11）</h3>
+<ol>
+<li>資料下載與壓縮載入完成後，介面會自動返回 Power BI 的主畫布（報表檢視）。</li>
+<li>開啟右側的 <strong>「資料」</strong> 面板（新版介面顯示為「資料」標籤頁）。</li>
+<li>展開 <strong><code>全球暢銷電子遊戲表</code></strong> 物件，確認從 Wikipedia 擷取過來的欄位（如：遊戲名、系列、平台、發行商、銷量等）已經完好無損地列在右側，可直接用於後續的視覺化圖表拉取。</li>
+</ol>
+<p><img src="image-2.png" alt="alt text"></p>
+<hr>
+<h3 id="步驟四進入-power-query-編輯器準備進行轉換對應-p-12">步驟四：進入 Power Query 編輯器準備進行轉換（對應 p. 12）</h3>
+<ol>
+<li>為了後續能夠針對「銷量」進行數字型態修正、或是對「平台」進行特徵拆解，點選上方功能列的 【常用】 分頁。</li>
+<li>點擊正中央的 <strong>「轉換資料」</strong>（或新版介面中的「查詢 ➡️ 轉換資料」）按鈕。</li>
+<li>系統將順利跳出並進入「Power Query 編輯器」視窗，正式完成投影片 p. 12 規範的資料清洗與編輯前置作業。</li>
+</ol>
+<p><img src="image-3.png" alt="alt text"></p>
+
+</body>
+</html>
